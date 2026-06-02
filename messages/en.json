@@ -126,7 +126,7 @@
     "updateTask": "Edit Task",
     "deleteTask": "Delete Task",
     "loading": "Loading...",
-    "tagTooLong": "Tag is too long (at most 10 characters)",
+    "tagTooLong": "Tag is too long (at most 15 characters)",
     "tooManyTags": "You can add at most 4 tags",
     "dueDateAsc": "Due Date (Ascending)",
     "dueDateDesc": "Due Date (Descending)",
