@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TaskFlow Frontend
 
-## Getting Started
+A modern and responsive task management application built with Next.js, TypeScript, and Tailwind CSS. The application provides a seamless user experience for managing tasks, authentication, profile management, and productivity workflows.
 
-First, run the development server:
+🌐 **Live Demo:** https://taskflow-mh.vercel.app
+
+---
+
+## Features
+
+* User Authentication & Authorization
+* Email Verification & Password Recovery
+* Task Management (Create, Update, Soft & Hard Delete, Restore from Archive)
+* Task Filtering, Searching & Pagination
+* Task Statistics Dashboard
+* Responsive Design
+* Form Validation with Zod & React Hook Form
+* Internationalization (i18n) Support
+* Reusable UI Components with shadcn/ui
+* Type-Safe Development with TypeScript
+
+---
+
+## Technology Stack
+
+* **Framework:** Next.js 16
+* **UI Library:** React 19
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS v4
+* **Components:** shadcn/ui
+* **Forms & Validation:** React Hook Form + Zod
+* **HTTP Client:** Axios
+Query
+* **Internationalization:** next-intl
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/mahmood-mohamed/taskflow-frontend.git
+cd taskflow-frontend
+npm install
+```
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file based on `.env.example`.
+
+```bash
+cp .env.example .env.local
+```
+
+Refer to the `.env.example` file for all required environment variables and configuration values.
+
+---
+
+## Project Structure
+
+```text
+frontend/
+├── public/
+├── messages/
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── i18n/
+│   ├── lib/
+│   ├── validations/
+│   └── proxy.ts
+│
+├── .env.example
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## Running Locally
+
+Development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production Build:
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Adding UI Components
 
-## Deploy on Vercel
+```bash
+npx shadcn@latest add <component-name>
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API Requests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use the configured Axios instance located in the `src/lib/` directory to communicate with the backend API.
+
+### Localization
+
+Add translation messages inside the `messages/` directory and configure locales through the `src/i18n/` folder.
+
+---
+
+## Backend Repository
+
+This frontend communicates with the TaskFlow Backend API for authentication, task management, and user operations.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
