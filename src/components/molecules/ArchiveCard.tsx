@@ -98,8 +98,10 @@ export function ArchiveCard({ task, isActioning, onRestore, onDelete, onViewDeta
       )}
     >
       {/* Decorative glow */}
-      <div className="absolute -bottom-8 -end-8 w-28 h-28 bg-destructive/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-      <div className="absolute -bottom-8 -start-8 w-28 h-28 bg-primary/8 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] pointer-events-none">
+        <div className="absolute -bottom-8 -end-8 w-28 h-28 bg-destructive/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="absolute -bottom-8 -start-8 w-28 h-28 bg-primary/8 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      </div>
 
       {/* ── Top row: Priority badge + Status badge ──────────────────────────── */}
       <div className="flex items-center justify-between mb-4 animate-in fade-in slide-in-from-top-2 duration-700">
