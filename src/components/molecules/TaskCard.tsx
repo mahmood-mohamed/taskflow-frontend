@@ -81,8 +81,10 @@ export function TaskCard({ task, onEdit, onDelete, onStatusChange, onViewDetails
     >
 
       {/* Decorative Glow */}
-      <div className="absolute -top-10 -end-10 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="absolute -bottom-10 -end-10 w-32 h-32 bg-indigo-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] pointer-events-none">
+        <div className="absolute -top-10 -end-10 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="absolute -bottom-10 -end-10 w-32 h-32 bg-indigo-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      </div>
 
       {/* Header: Priority & Actions */}
       <div className="flex items-center justify-between mb-5 relative animate-in fade-in slide-in-from-right-3 duration-700">
