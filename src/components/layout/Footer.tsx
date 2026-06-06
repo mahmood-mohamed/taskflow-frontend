@@ -6,7 +6,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full py-6 mt-auto border-t border-border bg-background">
+    <footer className="w-full py-6 mt-10 border-t border-border bg-background">
       <div className="container md:px-8 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground text-center md:text-start flex items-center gap-1 justify-center md:justify-start cursor-default">
           {t("developerwith")}  <span className="text-red-500 animate-pulse">{t("heart")}</span> {t("by")}  <span className="font-semibold text-foreground">{t("developer")}</span>
