@@ -64,7 +64,7 @@ export function TaskCard({ task, onEdit, onDelete, onStatusChange, onViewDetails
 
   const currentStatus = statusConfig[task.status] || statusConfig.todo;
 
-  const date = new Date(task.createdAt);
+  const date = new Date(task.dueDate || "");
   const timeFormatted = date.toLocaleDateString(locale, {
     month: "short",
     day: "numeric",
