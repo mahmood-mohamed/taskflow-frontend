@@ -1,4 +1,4 @@
-import { Mail, MessageCircle } from "lucide-react";
+import { Globe, Mail, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function Footer() {
@@ -14,6 +14,14 @@ export function Footer() {
 
 
         <div className="flex items-center gap-6 md:justify-center">
+          <a href="https://portfolio-mahm0ud.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-200"
+            title="Portfolio">
+            <Globe className="h-5 w-5" />
+            <span className="sr-only">Portfolio</span>
+          </a>
           <a
             href="https://github.com/mahmood-mohamed"
             target="_blank"
