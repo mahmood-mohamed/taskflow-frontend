@@ -60,7 +60,6 @@ export function ArchiveContent() {
           sortBy: "createdAt",
           sortOrder: "desc",
         },
-        headers: { Authorization: `Bearer ${Cookies.get("accessToken")}` },
       });
       setTasks(res.data.data.tasks ?? []);
       setTotalPages(res.data.data.pagination.totalPages || 1);
@@ -100,8 +99,7 @@ export function ArchiveContent() {
     try {
       await axiosInstance.patch(
         `tasks/${id}/restore`,
-        {},
-        { headers: { Authorization: `Bearer ${Cookies.get("accessToken")}` } }
+        {}
       );
       toast.success(t("restoreSuccess"));
       setTasks((prev) => prev.filter((task) => task._id !== id));
@@ -117,9 +115,7 @@ export function ArchiveContent() {
     setConfirm({ open: false });
     setActionLoading(id);
     try {
-      await axiosInstance.delete(`tasks/${id}/hard-delete`, {
-        headers: { Authorization: `Bearer ${Cookies.get("accessToken")}` },
-      });
+      await axiosInstance.delete(`tasks/${id}/hard-delete`);
       toast.success(t("deleteSuccess"));
       setTasks((prev) => prev.filter((task) => task._id !== id));
     } catch {
@@ -134,9 +130,7 @@ export function ArchiveContent() {
     setConfirm({ open: false });
     setActionLoading("all");
     try {
-      await axiosInstance.delete("tasks/hard-delete-all", {
-        headers: { Authorization: `Bearer ${Cookies.get("accessToken")}` },
-      });
+      await axiosInstance.delete("tasks/hard-delete-all");
       toast.success(t("deleteAllSuccess"));
       setTasks([]);
     } catch {

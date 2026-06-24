@@ -41,20 +41,17 @@ export default function DashboardPage() {
   const fetchDashboardData = React.useCallback(async () => {
     setIsLoading(true);
     try {
-      const token = Cookies.get("accessToken");
-      const headers = { Authorization: `Bearer ${token}` };
 
       // Fetch stats & last tasks in parallel for ultimate speed!
       const [statsRes, tasksRes] = await Promise.all([
-        axiosInstance.get("tasks/stats", { headers }),
+        axiosInstance.get("tasks/stats"),
         axiosInstance.get("tasks", {
           params: {
             limit: 7,
             sortBy: "createdAt",
             sortOrder: "desc",
             isDeleted: false
-          },
-          headers
+          }
         })
       ]);
 
@@ -120,11 +117,7 @@ export default function DashboardPage() {
 
   const handleEdit = async (id: string) => {
     try {
-      const response = await axiosInstance.get(`tasks/${id}`, {
-        headers: {
-          "Authorization": `Bearer ${Cookies.get("accessToken")}`,
-        }
-      });
+      const response = await axiosInstance.get(`tasks/${id}`);
       setEditingTask(response.data.data);
       setIsEditModalOpen(true);
     } catch (error) {
@@ -181,14 +174,14 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent Tasks Section */}
-        <RecentTasks 
-          locale={locale} 
-          tasks={recentTasks} 
+        <RecentTasks
+          locale={locale}
+          tasks={recentTasks}
           onTaskClick={(task) => {
             setDetailedTask(task);
             setIsDetailsOpen(true);
           }}
-          className="animate-in fade-in slide-in-from-start-8 duration-1000" 
+          className="animate-in fade-in slide-in-from-start-8 duration-1000"
         />
 
         {/* Task Distribution Section */}

@@ -54,10 +54,7 @@ export function TasksContent() {
       params.limit = 12;
 
       const response = await axiosInstance.get("tasks", {
-        params,
-        headers: {
-          "Authorization": `Bearer ${Cookies.get("accessToken")}`,
-        }
+        params
       });
       setTasks(response.data.data.tasks || []);
       setTotalPages(response.data.data.pagination?.totalPages || 1);
@@ -84,11 +81,7 @@ export function TasksContent() {
 
   const handleEdit = async (id: string) => {
     try {
-      const response = await axiosInstance.get(`tasks/${id}`, {
-        headers: {
-          "Authorization": `Bearer ${Cookies.get("accessToken")}`,
-        }
-      });
+      const response = await axiosInstance.get(`tasks/${id}`);
       setEditingTask(response.data.data);
       setIsModalOpen(true);
     } catch (error) {
@@ -98,11 +91,7 @@ export function TasksContent() {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await axiosInstance.delete(`tasks/${id}/soft-delete`, {
-        headers: {
-          "Authorization": `Bearer ${Cookies.get("accessToken")}`,
-        }
-      });
+      const response = await axiosInstance.delete(`tasks/${id}/soft-delete`);
       if (response.data.success === true) {
         toast.success(t("taskDeleted"));
         setTasks(tasks.filter(t => t._id !== id));
@@ -115,11 +104,7 @@ export function TasksContent() {
 
   const handleStatusChange = async (id: string, newStatus: string) => {
     try {
-      await axiosInstance.patch(`tasks/${id}/status`, { status: newStatus }, {
-        headers: {
-          "Authorization": `Bearer ${Cookies.get("accessToken")}`,
-        }
-      });
+      await axiosInstance.patch(`tasks/${id}/status`, { status: newStatus });
       toast.success("Status updated");
       setTasks(tasks.map(t => t._id === id ? { ...t, status: newStatus } : t));
     } catch (error) {
